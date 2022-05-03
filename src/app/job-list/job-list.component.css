@@ -1,0 +1,20 @@
+#jobs {
+  width: 90%;
+   @media (min-width: 576px) { width: 75%; };
+}
+
+h5,
+h6,
+span {
+  color: black;
+}
+
+.brand,
+.skills {
+  width:100% ;
+  @media (min-width: 576px) { width: 50%; }
+}
+
+.back{
+background-color: #e5fef9;
+}

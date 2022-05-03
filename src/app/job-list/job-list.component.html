@@ -1,0 +1,45 @@
+<app-job-filter></app-job-filter>
+<div class="back job-list">
+  <div class="row pt-2 mx-auto" id="jobs">
+    <div class="job-list-{{item.id}} p-2 bg-white m-3 d-flex flex-column  flex-sm-row w-100"
+      *ngFor="let item of jobs" (click)='jobDetail(item.id)' role="button"
+      style="border-radius: 8px; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1)">
+      <div class="d-flex flex-row mb-4 mb-sm-0  brand">
+        <img class="mr-2" src={{item.logo}} alt="">
+        <div>
+          <h5>{{item.company}}</h5>
+          <h6>{{item.position}}</h6>
+          <div>
+            <span>{{item.experience +' | '+ item.contract + ' | '+ item.location}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row flex-wrap justify-content-start align-items-center skils">
+        <h5 class="mr-2  rounded-pill py-1 px-2" style="background-color: #e6fffa;">{{item.role}}</h5>
+        <h5 class="mr-2  rounded-pill py-1 px-2" style="background-color: #e6fffa;"
+          *ngFor="let tech of item.technology">{{tech}}</h5>
+        <h5 class="mr-2  rounded-pill py-1 px-2" style="background-color: #e6fffa;">{{item.ctc}}-LPA</h5>
+      </div>
+    </div>
+    <!-- <nav aria-label="Page navigation example" class="w-100 mr-4" *ngIf="jobs.length">
+      <ul class="pagination justify-content-end">
+        <div class="d-flex flex-row pt-2">
+          <p class="mr-2">Items per page : </p>
+          <p class="mr-3">{{limit}}</p>
+          <p class="mr-4">{{start+1}}-{{jobs.length <= start+limit ? jobs.length : start+limit}} of {{jobs.length}}</p>
+        </div>
+        <li class="page-item" [ngClass]="{'disabled': !start}">
+          <button class="page-link previous-page font-weight-bold" (click)='changePage(start - limit)'
+            [disabled]='!start' style="border-color: #343a40;">
+            <span aria-hidden="true">&laquo;</span></button>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': end>=jobs.length}">
+          <button class="page-link next-page font-weight-bold" (click)='changePage(start + limit)'
+            [disabled]='end>=jobs.length' style="border-color: #343a40;">
+            <span aria-hidden="true">&raquo;</span>
+          </button>
+        </li>
+      </ul>
+    </nav> -->
+  </div>
+</div>

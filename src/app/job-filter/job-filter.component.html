@@ -1,0 +1,36 @@
+<div class="row py-4 mx-auto filters-job">
+    <div class="d-flex flex-column  flex-sm-row justify-content-between w-100" [formGroup]='form'>
+        <div class="filter  d-flex flex-column col-12 col-sm-3">
+            <label for="customRange1" class="font-weight-bold">JOB ROLE</label>
+            <select [multiple]='true' formControlName='roles' class="selectpicker w-100" id="role-filter"
+                data-actions-box="true" data-size="5">
+                <option [value]="item" *ngFor="let item of roles">{{item}}</option>
+            </select>
+        </div>
+        <div class="filter  d-flex flex-column col-12 col-sm-3">
+            <label for="customRange1" class="font-weight-bold">TECHNOLOGY</label>
+            <select [multiple]='true' formControlName='technology' class="selectpicker w-100" id="technology-filter"
+                data-actions-box="true" data-size="5">
+                <option [value]="item" *ngFor="let item of technology">{{item}}</option>
+            </select>
+        </div>
+        <div class="filter col-12 col-sm-3">
+            <label for="customRange1" class="font-weight-bold">EXPERIENCE</label>
+            <select [multiple]='true' data-max-options="1" formControlName='experience' class="selectpicker w-100 "
+                id="experience-filter" data-size="5">
+                <option [value]="item" *ngFor="let item of experience">{{item}}</option>
+            </select>
+        </div>
+
+        <div class="filter col-12 col-sm-3">
+            <label for="formControlRange" class="font-weight-bold">CTC
+                {{form.value.ctc ? '- ' +form.value.ctc +' LPA' :''}}</label>
+            <input type="range" class="form-control-range" id="formControlRange" id="ctc-filter" min="0" max="50"
+                formControlName='ctc'>
+            <div>
+                <h6 class="float-left">MIN : 0 LPA</h6>
+                <h6 class="float-right">MAX : 50 LPA</h6>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class='job-detail-{{jobs.id}}'>
+    <div class="header">
+
+    </div>
+    <div class='main'>
+        <div class="job-page d-flex justify-content-center ">
+            <div class=" d-flex flex-row">
+                <div class="company-logo">
+                    <img src={{jobs.logo}} alt="">
+                </div>
+                <div class='ml-4 mt-2'>
+                    <h5>{{jobs.company}}</h5>
+                    <h6>{{jobs.position + ' | ' + jobs.location}}</h6>
+                    <div class='d-flex flex-row'>
+                        <div><span class="font-weight-bold">Experience: </span>{{ jobs.experience + '  '}}</div>
+                        <div class='mx-3'>
+                            |
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="font-weight-bold">CTC: </span>{{ '  ' +  jobs.ctc }} LPA
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='job-page d-flex justify-content-center mx-auto'>
+        <div class="d-flex flex-column mt-2">
+            <div><span class="h5">About The Company: </span>{{ jobs.about}}</div> <br>
+            <div><span class="h5">Website: </span> <span class='text-primary'>{{ jobs.website}}</span></div> <br>
+            <div><span class="h5">Contract: </span>{{ jobs.contract}}</div> <br>
+            <h5>Skills Required: -
+                <span class="mr-2 bg-secondary  rounded-pill py-1 px-2 text-white"
+                    *ngFor="let tech of jobs.technology">{{tech}}</span>
+            </h5> <br>
+            <div><span class="h5">Job Description: </span>{{ jobs.description}}.</div> <br>
+        </div>
+    </div>
+</div>

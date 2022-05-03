@@ -1,7 +1,19 @@
+import { JobDetailComponent } from './job-detail/job-detail.component';
+import { JobListComponent } from './job-list/job-list.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  {
+    path: '',
+    component: JobListComponent
+  },
+  {
+    path: 'detail/:id',
+    component: JobDetailComponent,
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
