@@ -1,0 +1,69 @@
+<div class="full-width" style="background-color: #F6F6F6;height: 100vh;">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="fw-bolder m-0">Where in the world?</h5>
+        </div>
+    </div>
+
+    <div class="p-5">
+        <div class="row">
+            <a class="btn btn-sm btn-primary w-auto back-button" routerLink='/'><i
+                    class="fas fa-arrow-left mr-3"></i>Back</a>
+        </div>
+
+        <div class="row mt-5" *ngIf="selectCountry">
+            <div class="image-container col-6">
+                <div class="card" style="width: 40rem;">
+                    <img [src]="selectCountry.flag" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="my-auto mx-auto details-container col-6 country-detail-{{selectCountry.id}}">
+                <h3 class="fw-bolder">{{selectCountry.name}}</h3>
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Native Name:</span> {{selectCountry.nativeName}}
+                        </p>
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Population:</span> {{selectCountry.population}}
+                        </p>
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Region:</span> {{selectCountry.region}}
+                        </p>
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Sub Region:</span> {{selectCountry.subregion}}
+                        </p>
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Capital:</span> {{selectCountry.capital}}
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Top Level Domain:</span> <span class="mr-1"
+                                *ngFor="let item of selectCountry.topLevelDomain ; let i =index">{{item}}
+                                <span *ngIf="i < selectCountry.topLevelDomain.length-1">,</span>
+                            </span>
+                        </p>
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Currencies:</span> <span class="mr-1"
+                                *ngFor="let item of selectCountry.currencies  ; let i =index">{{item.name}}
+                                <span *ngIf="i < selectCountry.currencies.length-1">,</span></span>
+                        </p>
+                        <p class="mb-1">
+                            <span class="h6 mr-2">Languages:</span> <span class="mr-1"
+                                *ngFor="let item of selectCountry.languages  ; let i =index">{{item.name}}
+                                <span *ngIf="i < selectCountry.languages.length-1">,</span></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex flex-row flex-wrap align-items-center">
+                    <div class="h6 mr-2">Border Countries:</div>
+                    <button [routerLink]='"/detail/"+item.id' (click)='getAllCountries()' class="badge bg-secondary p-2 mr-1 mb-1 border-country-{{item.id}}"
+                        *ngFor="let item of borderCountries" style="cursor: pointer;">
+                        {{item.name}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="full-width" style="background-color: #F6F6F6; min-height: 100vh;">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="fw-bolder m-0">Where in the world?</h5>
+        </div>
+    </div>
+
+    <div class="p-5">
+        <div class="row">
+            <div class="col-6">
+                <form>
+                    <div class="input-group w-50">
+                        <input type="text" class="form-control search-input" placeholder="Search for a country..."
+                            #search>
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary search-button" type="submit"
+                                (click)='searchByname(search.value)'>Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6 text-right">
+                <div class='d-flex flex-row justify-content-end'>
+                    <select [(ngModel)]="selectedRegion" class="form-select w-25 select-filter"
+                        aria-label="Default select example" (change)="filterByregion(selectedRegion)">
+                        <option *ngFor="let item of regions" [value]="item">{{item}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row flex-wrap" [ngClass]='countries.length<5 ? "" : "justify-content-between"'>
+            <div class="card mt-5 country-list-{{item.id}}" [ngClass]="{'mr-5': countries.length<5}"
+                style="width: 18rem;min-height: 18em; cursor: pointer;" *ngFor="let item of countries"
+                [routerLink]='"/detail/"+item.id'>
+                <img [src]='item.flag' class="card-img-top" alt="..." style="height: 190px;width: 286px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="mb-0">
+                        <span class="h6">Population:</span> {{item.population}}
+                    </p>
+                    <p class="mb-0">
+                        <span class="h6">Region:</span> {{item.region}}
+                    </p>
+                    <p class="mb-0">
+                        <span class="h6">Capital:</span> {{item.capital}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row w-100 justify-content-center mt-5" *ngIf="countries.length === 0">
+            <p> No Country Found!</p>
+        </div>
+    </div>
+</div>

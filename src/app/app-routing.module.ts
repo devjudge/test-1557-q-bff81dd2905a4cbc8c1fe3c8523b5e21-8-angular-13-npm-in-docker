@@ -1,17 +1,17 @@
-import { JobDetailComponent } from './job-detail/job-detail.component';
-import { JobListComponent } from './job-list/job-list.component';
+import { DetailCountriesComponent } from './detail-countries/detail-countries.component';
+import { ListCountriesComponent } from './list-countries/list-countries.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 
 const routes: Routes = [
   {
     path: '',
-    component: JobListComponent
+    component: ListCountriesComponent
   },
   {
     path: 'detail/:id',
-    component: JobDetailComponent,
+    pathMatch: 'full',
+    component: DetailCountriesComponent
   }
 ];
 

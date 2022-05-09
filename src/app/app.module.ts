@@ -1,27 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { JobListComponent } from './job-list/job-list.component';
-import { JobDetailComponent } from './job-detail/job-detail.component';
-import { JobFilterComponent } from './job-filter/job-filter.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import * as $ from 'jquery';
+import { ListCountriesComponent } from './list-countries/list-countries.component';
+import { DetailCountriesComponent } from './detail-countries/detail-countries.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JobListComponent,
-    JobDetailComponent,
-    JobFilterComponent
+    ListCountriesComponent,
+    DetailCountriesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
